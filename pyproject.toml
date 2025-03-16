@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+dependencies = [
+  "microsoft-aurora==1.5.1",
+]
+
+[project]
+name = "aurora-training"
+version = "0.0.1"
+
+[tool.setuptools]
+packages = ["aurora_training"]
+package-dir = { "aurora_training" = "aurora-training" }
+
+[project.optional-dependencies]
+dev = [
+  "black",
+  "isort"
+]
+
+[tool.black]
+line-length = 88
+target-version = ['py311']
+exclude = '''
+(
+  | \.egg
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.nox
+  | \.tox
+  | \.venv
+  | _build
+  | build
+  | dist
+  | setup.py
+  | .*\.py
+)
+'''
