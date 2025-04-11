@@ -35,6 +35,8 @@ def main(args):
     rank = dist.get_rank()
 
     if rank == 0:
+	 # force NSAMPLES to be an int to deal with type errors
+	 NSAMPLES = int(NSAMPLES)
         input = generate_batch(NSAMPLES, NTIME_INPUT, NLAT, NLON)
         truth = generate_batch(NSAMPLES, 1, NLAT, NLON)  # Output always has len(time)=1
         surf_stats = calc_surf_stats(input)
