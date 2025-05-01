@@ -23,3 +23,5 @@ cd examples/
 torchrun --standalone --nnodes=1 --nproc-per-node=4 \
          train_ddp.py --nsamples 12 --samples-per-batch 4
 ```
+
+To run the training using FSDP on one or more nodes, please refer to [document](README_fsdp.md)
